@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+
+<h:head></h:head>
+<h:body>
+	<p:dialog header="Login SisClient"
+		modal="false" closable="false" position="center"
+		minWidth="300" width="400"
+		draggable="false" resizable="false" visible="true">
+
+		<center>
+			<h:outputText value="Usuário e/ou senha inválidos!"
+				rendered="#{param.error}" />
+
+			<form action="j_spring_security_check" method="post">
+				<h:panelGrid columns="2" cellpadding="3" style="font-weight: bold;">
+					<h:outputLabel for="j_username" value="Usuário:" />
+					<h:inputText id="j_username"  />
+
+					<h:outputLabel for="j_password" value="Senha:" />
+					<h:inputSecret id="j_password"  />
+				</h:panelGrid>
+				<h:commandButton value="Logar" />
+			</form>
+		</center>
+	</p:dialog>
+</h:body>
+
+
+
+</html>

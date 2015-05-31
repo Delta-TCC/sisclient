@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">
+<h:body>
+
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:form id="form_cad_user">
+				<p:growl id="growl" showDetail="true" sticky="false" life="5000" />
+				<p:panel header="Cadastro de usuários">
+					<h:panelGrid columns="7">
+
+						<p:outputLabel value="Username:" />
+						<p:inputText value="#{UserMB.bean.username}" />
+
+						<p:outputLabel value="Password:" />
+						<p:password value="#{UserMB.bean.password}" />
+
+
+						<p:outputLabel value="Ativo:" />
+						<p:selectBooleanButton value="#{UserMB.bean.enable}"
+							onIcon="ui-icon-check" offIcon="ui-icon-close" onLabel="Sim"
+							offLabel="Não" />
+
+						<p:commandButton value="Cadastrar" action="#{UserMB.cadastrar}"
+							update="growl, form_cad_user" />
+					</h:panelGrid>
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

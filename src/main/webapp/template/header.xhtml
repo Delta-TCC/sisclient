@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">
+
+<body>
+	<ui:composition>
+
+		<div id="topo"></div>
+
+		<p:menubar autoDisplay="false">
+			<p:submenu label="Alterar Senha" icon="ui-icon-document">
+				<p:menuitem value="Alterar senha" url="senha.jsf" />
+			</p:submenu>
+			
+			<p:submenu label="Cliente" icon="ui-icon-document">
+				<p:menuitem value="Cadastrar" url="a_pessoa.jsf" />
+				<p:menuitem value="Consultar" url="c_pessoa.jsf" />
+			</p:submenu>
+
+			<p:submenu label="Sair">
+				<p:menuitem value="Sair"
+					url="#{request.contextPath}/j_spring_security_logout" />
+			</p:submenu>
+
+			
+		</p:menubar>
+	</ui:composition>
+</body>
+</html>
+
+

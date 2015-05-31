@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">
+<h:body>
+
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:form id="form_cad_per">
+				<p:growl id="growl" showDetail="true" sticky="false" life="5000" />
+
+
+				<p:dataTable value="#{UserMB.list}" var="user"
+					rowKey="#{user.username}" selection="#{UserMB.bean}"
+					selectionMode="single">
+
+
+					<p:column headerText="Nome">
+						#{user.username}
+					</p:column>
+				</p:dataTable>
+
+
+				<p:pickList value="#{UserMB.authoritys}" var="auth"
+					itemLabel="#{auth}" itemValue="#{auth}" />
+
+				<p:commandButton value="Atribuir permissões"
+					action="#{UserMB.atribuirPermissao}" update="growl, form_cad_per" />
+			</h:form>
+
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

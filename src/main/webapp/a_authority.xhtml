@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link href="css/estilos.css" type="text/css" rel="stylesheet" />
+</h:head>
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:form id="form_c_os">
+				<h:panelGrid columns="1">
+					<p:growl id="form_os_growl" showDetail="true" sticky="false"
+						life="5000" />
+					<h:panelGrid columns="10">
+					
+					
+						<p:outputLabel value="Nome: " />
+						<h:panelGrid columns="2">
+							<p:inputText required="true" value="#{UserMB.bean.username}" />
+							<p:commandButton icon="ui-icon-check" update="form_c_os"
+								action="#{UserMB.consultar}" />
+						</h:panelGrid>
+						<p:panel header="Usuário" rendered="#{UserMB.consultaAtivo}">
+							<p:panelGrid columns="2">
+
+								<p:outputLabel value="Nome:"></p:outputLabel>
+								<p:outputLabel value="#{UserMB.bean.username}"></p:outputLabel>
+
+								<p:outputLabel value="Situação:"></p:outputLabel>
+								<p:outputLabel value="Ativo" rendered="#{UserMB.bean.enable}"></p:outputLabel>
+								<p:outputLabel value="Inativo" rendered="#{!UserMB.bean.enable}"></p:outputLabel>
+
+							</p:panelGrid>
+						</p:panel>
+					</h:panelGrid>
+
+						<p:panel header="Authorutis" rendered="#{UserMB.bean.enable}">
+
+							<p:pickList value="#{UserMB.auth}"
+								var="auth" itemLabel="#{auth.name}" itemValue="#{auth.name}" />
+						</p:panel>
+						<p:commandButton action="#{UserMB.updateUserAuth}" value="Atualizar Permissões" rendered="#{UserMB.bean.enable}" update="form_c_os" />
+
+
+
+				</h:panelGrid>
+
+
+
+
+
+
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link href="css/estilos.css" type="text/css" rel="stylesheet" />
+</h:head>
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:form id="form_a_pessoa">
+				<p:growl id="msn_a_pessoa" showDetail="true" sticky="false"
+					life="5000" />
+				<div id="centro">
+					<p:panel header="Cadastro de clientes">
+						<h:panelGrid columns="2" cellpadding="5">
+
+							<p:outputLabel value="Nome" />
+							<p:inputText value="#{PessoaMB.bean.nome}" />
+
+							<p:outputLabel value="CPF" />
+							<p:inputMask id="cpf" value="#{PessoaMB.bean.cpf}" mask="999.999.999-99" />
+							
+							<p:outputLabel value="Salário" />
+							<p:inputText value="#{PessoaMB.bean.valorSalario}" />
+
+						</h:panelGrid>
+						<h:panelGrid columns="3" cellpadding="5">
+							<p:commandLink action="#{PessoaMB.salvar}" title="Salvar"
+								update="form_a_pessoa">
+								<p:graphicImage value="img/super-mono-3d-part2-95.png"
+									styleClass="ui-ico" />
+							</p:commandLink>
+						</h:panelGrid>
+					</p:panel>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link href="css/estilos.css" type="text/css" rel="stylesheet" />
+</h:head>
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:form id="form_c_pessoa">
+				<p:growl id="form_c_pessoa_growl" showDetail="true" sticky="false"
+					life="5000" />
+
+				<div id="centro">
+					<h:panelGrid columns="4">
+						<p:commandLink
+							update="form_c_pessoa, form_c_pessoa_growl, lista_tipo"
+							action="#{PessoaMB.editar}" title="Editar">
+							<p:graphicImage value="img/super-mono-3d-part2-85.png"
+								styleClass="ui-ico" />
+						</p:commandLink>
+
+						<p:commandLink
+							update="form_c_pessoa, form_c_pessoa_growl, lista_tipo"
+							action="#{PessoaMB.excluir}" title="Excluir">
+							<p:graphicImage value="img/super-mono-3d-part2-96.png"
+								styleClass="ui-ico" />
+						</p:commandLink>
+
+					</h:panelGrid>
+				</div>
+
+				<div id="centro">
+
+					<h:panelGrid columns="4">
+						<p:outputLabel value="Nome:" />
+						<p:inputText required="false" value="#{PessoaMB.selecionado.nome}" />
+						<p:outputLabel value="CPF:" />
+						<p:inputText required="false" value="#{PessoaMB.selecionado.cpf}" />
+						<p:outputLabel value="Salário:" />
+						<p:inputText required="false" value="#{PessoaMB.selecionado.valorSalario}" />
+					</h:panelGrid>
+				</div>
+				<p:dataTable id="lista_tipo" var="tip" value="#{PessoaMB.list}"
+					selection="#{PessoaMB.selecionado}" selectionMode="single"
+					rowKey="#{tip.id}">
+
+					<p:ajax event="rowSelect" update=":form_c_pessoa" />
+
+
+
+
+					<p:column headerText="Nome" style="text-align: center">
+			#{tip.nome}
+			</p:column>
+					<p:column headerText="CPF" style="text-align: center">
+			#{tip.cpf}
+			</p:column>
+			<p:column headerText="Salário" style="text-align: center">
+			#{tip.valorSalario}
+			</p:column>
+				</p:dataTable>
+
+
+				<div id="rodape"></div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

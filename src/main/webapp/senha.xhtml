@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:form id="alterar_senha">
+					<p:growl id="growl" showDetail="true"
+					sticky="false" life="5000" />
+				
+				<h:panelGrid columns="2">
+				
+				
+				
+					<p:outputLabel value="Senha Antiga"/>
+					<p:password value="#{UserMB.oldPassword}" />
+				
+					<p:outputLabel value="Nova Senha"/>
+					<p:password value="#{UserMB.newPassword}" feedback="true"/>
+					
+					<p:outputLabel value="Confirme a Senha"/>
+					<p:password value="#{UserMB.confirmPassword}" feedback="true"/>  
+
+					<p:commandButton value="Alterar senha" action="#{UserMB.updatePassword}" update="alterar_senha" />
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

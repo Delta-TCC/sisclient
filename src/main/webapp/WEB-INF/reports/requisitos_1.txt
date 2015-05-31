@@ -1,0 +1,8 @@
+
+	processo de cadastro de contas
+	1 - definir atividades da importação do arquivo de texto (msmoney).
+
+	2 - CRUD Usuário (contas, dados pessoais)
+	3 - CRUD de metas
+	4 - CRUD de contas
+	

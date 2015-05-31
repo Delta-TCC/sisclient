@@ -1,0 +1,4 @@
+INSERT INTO usuario VALUES ('usuario', true, md5('usuario')); 
+INSERT INTO usuario VALUES ('admin', true, md5('admin')); 
+INSERT INTO authority VALUES ('ADMIN'); INSERT INTO authority VALUES ('USUARIO'); 
+INSERT INTO auth_authority VALUES ('admin','ADMIN', 1); INSERT INTO auth_authority VALUES ('usuario','USUARIO', 1); 

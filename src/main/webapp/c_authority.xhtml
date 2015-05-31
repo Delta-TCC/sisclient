@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link href="css/estilos.css" type="text/css" rel="stylesheet" />
+</h:head>
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+	<h:form id="form_c_marca">
+		<p:growl id="form_c_marca_growl" showDetail="true" sticky="false"
+			life="5000" />
+			
+		<div id="centro">
+			<h:panelGrid columns="4">
+				<p:commandLink update="form_c_marca, form_c_marca_growl, lista_tipo"
+					action="#{AuthorityMB.cadastrar}" title="Cadastrar">
+					<p:graphicImage value="img/super-mono-3d-part2-93.png" styleClass="ui-ico" />
+				</p:commandLink>
+
+				<p:commandLink update="form_c_marca, form_c_marca_growl, lista_tipo"
+					action="#{AuthorityMB.deletar}" title="Deletar">
+					<p:graphicImage value="img/super-mono-3d-part2-96.png" styleClass="ui-ico" />
+				</p:commandLink>
+
+			</h:panelGrid>
+		</div>
+		
+		<div id="centro">
+			
+			<h:panelGrid columns="4">
+				<p:outputLabel value="Nome:" />
+				<p:inputText required="false" value="#{AuthorityMB.bean.name}" />
+			</h:panelGrid>
+		</div>
+		<div id="centro">
+			<p:dataTable id="lista_tipo" var="tip" value="#{AuthorityMB.list}"
+				selection="#{AuthorityMB.selecionado}" selectionMode="single"
+				rowKey="#{tip.name}">
+				<p:column headerText="Tipo Aplicação" style="text-align: center">
+			#{tip.name}
+			</p:column>
+			</p:dataTable>
+			
+		</div>
+		
+		<div id="rodape"></div>
+
+	</h:form>
+	</ui:define>
+	</ui:composition>
+</h:body>
+</html>
