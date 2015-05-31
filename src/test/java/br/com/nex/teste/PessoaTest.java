@@ -1,19 +1,13 @@
 package br.com.nex.teste;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 import br.com.nex.bean.GrupoPessoas;
 import br.com.nex.bean.MenorEMaiorSalario;
 import br.com.nex.bean.Pessoa;
 
-@RunWith(JUnit4.class)
-public class PessoaTeste {
+public class PessoaTest {
 
 	@Test
 	public void menorEMaiorSalario() {
